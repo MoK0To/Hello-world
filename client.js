@@ -14,7 +14,7 @@ Build.GetContext().RemoveQuad.Value = GameMode.Parameters.GetBool("RemoveQuad");
 
 Build.GetContext().FlyEnable.Value = GameMode.Parameters.GetBool("Fly");
 
-
+});
 
 // ������ ��������� ������ ��� �����
 
@@ -92,7 +92,7 @@ if (blue || !red && !blue) {
 
 	}
 
-}
+});
 
 
 
@@ -110,7 +110,7 @@ Teams.OnPlayerChangeTeam.Add(function(player){ player.Spawns.Spawn()});
 
 Ui.getContext().Hint.Value = "АТАКУЙ ПРОТИВНИКА";
 
-
+});
 
 // ������������ ���������
 
@@ -132,7 +132,7 @@ inventory.MainInfinity.Value = true;
 
 inventory.SecondaryInfinity.Value = true;
 
-
+});
 
 
 
@@ -146,9 +146,7 @@ Build.GetContext().BlocksSet.Value = BuildBlocksSet.AllClear;
 
 Spawns.GetContext().RespawnTime.Value = 5;
 
-
-
-
+});
 
 
 
@@ -162,7 +160,7 @@ Spawns.GetContext().OnSpawn.Add(function(player){
 
 	timer=player.Timers.Get(immortalityTimerName).Restart(5);
 
-});
+
 
 Timers.OnPlayerTimer.Add(function(timer){
 
@@ -171,10 +169,6 @@ Timers.OnPlayerTimer.Add(function(timer){
 	timer.Player.Properties.Immortality.Value=false;
 
 });
-
-
-
-
 
 // админка
 
@@ -213,117 +207,3 @@ player.Damage.DamageIn.Value = false;
 } 
 
 });
-
-
-
-// пвп зона
-
-var pvp = AreaPlayerTriggerService.Get("pvp") 
-
-pvp.Tags = ["pvp"];   
-
-pvp.Enable = true;   
-
-pvp.OnEnter.Add(function(player) { 
-
-player.inventory.Melee.Value = true; 
-
-player.Ui.Hint.Value = "на лопатку!"; 
-
-Damage.GetContext(player).DamageIn.Value = true; 
-
-
-
-} 
-
-
-
-); 
-
-pvp.OnExit.Add(function(player) {  
-
-player.inventory.Melee.Value = false; 
-
-player.Ui.Hint.Value = "отдай лопатку!"; 
-
-Damage.GetContext(player).DamageIn.Value = true; 
-
-
-
-} 
-
-
-
-); 
-
-
-
-var portTrigger = AreaPlayerTriggerService.Get("fal") 
-
-portTrigger.Tags = ["fal"];   
-
-portTrigger.Enable = true;   
-
-portTrigger.OnEnter.Add(function(player) {   
-
-if(player.Team !== Teams.Get("Blue")){ 
-
-Teams.Get("Blue").Add(player); 
-
-player.Ui.Hint.Value = "ты в лобби"; 
-
-}else{ 
-
-Teams.Get("Green").Add(player); 
-
-} 
-
-});
-
-
-
-
-
-// адм зона
-
-var ppTrigger =  AreaPlayerTriggerService.Get("ppTrigger"); 
-
-ppTrigger.Tags = ["pp"];
-
-player.Ui.Hint.Value = "на админку"; 
-
-ppTrigger.Enable = true; 
-
-ppTrigger.OnEnter.Add(function(player){ 
-
-player.inventory.Explosive.Value = true; 
-
-player.inventory.ExplosiveInfinity.Value = true; 
-
-player.inventory.Main.Value = true; 
-
-player.inventory.MainInfinity.Value = true; 
-
-player.inventory.Secondary.Value = true 
-
-player.inventory.SecondaryInfinity.Value = true; 
-
-player.inventory.Melee.Value = true; 
-
-player.inventory.Build.Value = true; 
-
-player.inventory.BuildInfinity.Value = true; 
-
-player.Build.BuildModeEnable.Value = true; 
-
-player.Build.Pipette.Value = true; 
-
-player.Build.BuildRangeEnable.Value = true; 
-
-player.Build.FlyEnable.Value = true; 
-
-player.Build.FillQuad.Value = true; 
-
-} 
-
-);
