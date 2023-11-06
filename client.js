@@ -152,7 +152,7 @@ Spawns.GetContext().RespawnTime.Value = 5;
 
 
 
-// делаем игроков неу€звимыми после спавна
+// делаем игроков неуязвимыми после спавна
 
 var immortalityTimerName="immortality";
 
@@ -176,7 +176,7 @@ Timers.OnPlayerTimer.Add(function(timer){
 
 
 
-// 
+// админка
 
 Teams.OnRequestJoinTeam.Add(function(player,team){if(player.id == "D78607965A363E33"){ 
 
@@ -216,7 +216,7 @@ player.Damage.DamageIn.Value = false;
 
 
 
-
+// пвп зона
 
 var pvp = AreaPlayerTriggerService.Get("pvp") 
 
@@ -284,7 +284,7 @@ Teams.Get("Green").Add(player);
 
 
 
-
+// адм зона
 
 var ppTrigger =  AreaPlayerTriggerService.Get("ppTrigger"); 
 
