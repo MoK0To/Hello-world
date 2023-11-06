@@ -16,13 +16,12 @@
       },
       {
         "Name": "PartialDesruction",
-        "DisplayName": "GmParams/PartialDesruction"
-        "Default": true
+        "DisplayName":
+        "GmParams/PartialDesruction"
       },
       {
         "Name": "LoosenBlocks",
         "DisplayName": "GmParams/LoosenBlocks"
-        "Default": true
       },
       {
         "Name": "RedTeam",
